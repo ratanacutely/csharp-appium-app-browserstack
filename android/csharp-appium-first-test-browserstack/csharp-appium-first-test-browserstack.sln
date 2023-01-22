@@ -1,7 +1,10 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-appium-first-test-browserstack", "csharp-appium-first-test-browserstack\csharp-appium-first-test-browserstack.csproj", "{C6D50AAA-0D6A-4468-AE3F-0FE80ABA403F}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "csharp-appium-first-test-browserstack", "csharp-appium-first-test-browserstack\csharp-appium-first-test-browserstack.csproj", "{C6D50AAA-0D6A-4468-AE3F-0FE80ABA403F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CXWV-ANDROID-BOT", "CXWV-ANDROID-BOT\CXWV-ANDROID-BOT.csproj", "{48E6CBF7-85B2-4D73-ADC3-5C82397E525E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +16,15 @@ Global
 		{C6D50AAA-0D6A-4468-AE3F-0FE80ABA403F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6D50AAA-0D6A-4468-AE3F-0FE80ABA403F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6D50AAA-0D6A-4468-AE3F-0FE80ABA403F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E6CBF7-85B2-4D73-ADC3-5C82397E525E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E6CBF7-85B2-4D73-ADC3-5C82397E525E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E6CBF7-85B2-4D73-ADC3-5C82397E525E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E6CBF7-85B2-4D73-ADC3-5C82397E525E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAA0E3FF-95E2-4672-A3BD-B1975A715D01}
 	EndGlobalSection
 EndGlobal
