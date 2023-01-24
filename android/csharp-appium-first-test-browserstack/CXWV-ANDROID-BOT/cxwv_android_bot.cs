@@ -27,7 +27,7 @@ namespace CXWV_ANDROID_BOT
             //device.Start();
 
             botManager = BOTManager.GetInstance();
-            this.InitBot(1);
+            this.InitBot(5);
             this.Bind();
             timer1.Start();
         }

@@ -15,6 +15,8 @@ namespace CXWV_ANDROID_BOT
         private string[] paths = { "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.RelativeLayout/android.widget.Button[3]",
                                     "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.widget.Button",
                                     "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.TextView[1]"};
+
+        private string[] countrysName = {"CA","US","AU","ES","HK"};
         private AndroidDriver<AndroidElement> driver = null;
         private AppiumOptions caps = new AppiumOptions();
         private Phone phone;
@@ -23,17 +25,17 @@ namespace CXWV_ANDROID_BOT
         public AppiumDevice(Phone phone)
         {
             this.phone = phone;
-            this.rewardedMax = 1;//random.Next(5, 11);
+            this.rewardedMax = random.Next(3,10);
         }
 
         public void Start()
         {
             // Set your BrowserStack access credentials
-            caps.AddAdditionalCapability("browserstack.user", "ratanaly_86jVWt");
-            caps.AddAdditionalCapability("browserstack.key", "37Lg5xqfDAfQ6BTrF8aU");
+            caps.AddAdditionalCapability("browserstack.user", "devgmailbl_ICm2Oa");
+            caps.AddAdditionalCapability("browserstack.key", "uMJQFyruDM2iXx9c21pY");
 
             // Set URL of the application under test
-            caps.AddAdditionalCapability("app", "bs://79230c428c3c63a34bf434afa36c565c8f51782d");
+            caps.AddAdditionalCapability("app", "bs://932bc22b59ba41eb61efccc65c7fea0ce29f18fb");
 
             // Specify device and os_version
             caps.AddAdditionalCapability("device", phone.Model);
@@ -49,6 +51,7 @@ namespace CXWV_ANDROID_BOT
 
 
             caps.AddAdditionalCapability("browserstack.networkLogs", "true");
+            //caps.AddAdditionalCapability("browserstack.geoLocation", countrysName[random.Next(0,countrysName.Length)]);
 
             try
             {
@@ -62,12 +65,22 @@ namespace CXWV_ANDROID_BOT
             
             bool isFirstTime = true;
             int index = 0;
+            int notFoundControl = 0;
             
             while (true)
             {
-                int wait = isFirstTime ? 5000 : 2000;
+                int wait = isFirstTime ? 5000 : 1000;
                 System.Threading.Thread.Sleep(wait);
                 isFirstTime = false;
+
+                notFoundControl++;
+                if (notFoundControl >= 70)
+                {
+                    isComplete = true;
+                    Stop();
+                    Console.WriteLine("===================> force break");
+                    break;
+                }
 
                 try
                 {
@@ -75,10 +88,10 @@ namespace CXWV_ANDROID_BOT
                     if (element != null && element.Enabled && element.Displayed)
                     {
                         Console.WriteLine("===> click : " + element.Text);
-                        
 
                         if(element.Text == "Close")
                         {
+                            notFoundControl = 0;
                             rewardedCount += 1;
                             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@ close " + rewardedCount);
                         }
